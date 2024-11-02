@@ -1,3 +1,4 @@
+#importações
 from flask import Blueprint, request, jsonify, current_app
 import jwt
 import datetime
@@ -8,8 +9,7 @@ users_bp = Blueprint('users', __name__)
 users = db.load_data('data/users.json')
 
 
-
-# Função para verificar o token
+# verificar token
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -27,7 +27,7 @@ def token_required(f):
     return decorated
 
 
-# Rota para login e geração do token    
+# login com token 
 @users_bp.route('/user/login', methods=['POST'])
 def login_user():
     data = request.json
@@ -45,7 +45,7 @@ def login_user():
 
     return jsonify({"response": True, "token": token}), 200
 
-# Cadastro de novo usuário
+# cadastra novo user
 @users_bp.route('/user/new', methods=['POST'])
 def set_user():
     data = request.json
@@ -65,7 +65,7 @@ def set_user():
     db.save_data('data/users.json', users)
     return jsonify({"response": True, "message": "User registered successfully"}), 201
 
-# Rota protegida para perfil do usuário
+# rota para o perfil do user
 @users_bp.route('/user/profile', methods=['GET'])
 @token_required
 def get_user_profile(current_user):
