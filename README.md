@@ -1,4 +1,5 @@
-<img src="img/Flask.png" alt="Flask img" width="500">
+<img src="img/Flask.png" alt="Flask img" width="100">
+
 # API Flask para Gerenciamento de Usuários e Produtos
 
 Esta é uma API desenvolvida em Python usando o Flask, que permite o gerenciamento de usuários e produtos. A API fornece funcionalidades para registro, login, adição, atualização, exclusão e recuperação de produtos, além de um sistema de autenticação por token.
