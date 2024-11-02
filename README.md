@@ -41,8 +41,8 @@ project/
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/yourusername/yourproject.git
-   cd yourproject
+   git clone https://github.com/Erick-aaooii/Product-management-system-using-Flask.git
+   cd Product-management-system-using-Flask
    ```
 
 2. **Crie um ambiente virtual:**
@@ -53,7 +53,7 @@ project/
 
 3. **Instale as dependências:**
    ```bash
-   pip install Flask
+   pip install Flask, json
    ```
 
 ## Execução
@@ -77,13 +77,14 @@ POST /user/new
 **Corpo:**
 ```json
 {
+    "name": "Usuário Teste"
     "email": "user@example.com",
     "password": "12345",
-    "name": "Usuário Teste"
 }
 ```
 
 #### Login de Usuário
+### Essa função retorna um token que deve ser colocado no cabeçalho e em todas as ações a seguir
 ```http
 POST /user/register
 ```
@@ -99,19 +100,20 @@ POST /user/register
 
 #### Adicionar Produto
 ```http
-POST /products
+POST /products/set
 ```
 **Corpo:**
 ```json
 {
     "name": "Produto Teste",
-    "price": 99.99
+    "price": 99.99,
+    "quantity": 1
 }
 ```
 
 #### Obter Produto
 ```http
-GET /products/<id>
+GET /products/get/<id>
 ```
 
 #### Atualizar Produto
@@ -142,7 +144,7 @@ x-access-token: seu_token_aqui
 
 ## Contribuições
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema ou enviar um pull request.
+Qualquer pessoa pode ajudar! Este programa foi criado com fins educacionais, então, se você puder contribuir explicando o porquê das suas sugestões, isso será de grande ajuda!
 
 ## Licença
 
